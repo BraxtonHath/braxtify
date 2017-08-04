@@ -35,7 +35,7 @@ public class ArtistController {
 
     @RequestMapping(value = "/artist", method = RequestMethod.POST)
     public String Search (@RequestParam("searchArtist") String searchArtist,
-                               Model model) {
+                          Model model) {
         List<Artist> artists = artistRepo.ArtistName(searchArtist);
         model.addAttribute("artists", artists);
         return "artist";
@@ -58,9 +58,8 @@ public class ArtistController {
 
     @RequestMapping(value = "/artist/edit/{artistId}", method = RequestMethod.GET)
     public String editArtist (@PathVariable("artistId") long artistId,
-                            Model model) {
+                              Model model) {
         Artist artist = artistRepo.findOne(artistId);
-
         model.addAttribute("artist", artist);
         return "editArtist";
     }

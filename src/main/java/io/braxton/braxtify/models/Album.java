@@ -1,6 +1,7 @@
 package io.braxton.braxtify.models;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -12,7 +13,7 @@ public class Album {
     @Column(name = "albumname")
     private String albumName;
     @Column(name = "yearreleased")
-    private int yearReleased;
+    private java.sql.Date yearReleased;
 
     @ManyToOne
     @JoinColumn(name = "artist_id")
@@ -25,7 +26,7 @@ public class Album {
     public Album() {
     }
 
-    public Album(String albumName, int yearReleased, Artist artist, List<Song> songs) {
+    public Album(String albumName, java.sql.Date yearReleased, Artist artist, List<Song> songs) {
         this.albumName = albumName;
         this.yearReleased = yearReleased;
         this.artist = artist;
@@ -44,15 +45,15 @@ public class Album {
         return albumName;
     }
 
-    public void setName(String name) {
+    public void setAlbumName(String albumName) {
         this.albumName = albumName;
     }
 
-    public int getYearReleased() {
+    public Date getYearReleased() {
         return yearReleased;
     }
 
-    public void setYearReleased(int yearReleased) {
+    public void setYearReleased(java.sql.Date yearReleased) {
         this.yearReleased = yearReleased;
     }
 

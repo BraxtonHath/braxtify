@@ -31,6 +31,14 @@
                             <li><a th:href="@{/artist/add}">Add Artist</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a th:href="@{/album}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Album <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/album}">See All Albums</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a th:href="@{/album/add}">Add Album</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

@@ -7,30 +7,36 @@
 </head>
 <body>
 <div th:include="navbar :: navbar"></div>
-<div class="all-body container">
+<div class="container">
     <div class="allArtist">
-        <div class="section-intro">
-            <h2 class="featured-heading">Recently added Artist</h2>
+        <div class="">
+            <h2 class="">Added Artist</h2>
             <div class="row">
                 <div th:each="artist : ${artists}" class="col-sm-6 col-md-4">
                     <h3 th:text="${artist.artistName}"></h3>
                 </div>
             </div>
-            <span class="edit-btn"><a href="/artist" type="button" class="btn btn-default">Artist</a></span>
+            <span class=""><a href="/artist" type="button" class="btn btn-default">Artist</a></span>
         </div>
-        <h1>hi</h1>
-        <div class="row">
-            <div th:each="album : ${albums}" class="col-sm-6 col-md-4">
-                <h3 th:text="${album.albumName}"></h3>
+    </div>
+        <div class="allAlbum">
+            <div class="">
+                <h2 class="">Added Albums</h2>
+                <div class="row">
+                    <div th:each="album : ${albums}" class="col-sm-6 col-md-4">
+                        <h3 th:text="${album.albumName}"></h3>
+                    </div>
+                </div>
+                <span class=""><a href="/artist" type="button" class="btn btn-default">Artist</a></span>
             </div>
         </div>
+        <h1>hi</h1>
         <div class="row">
             <div th:each="song : ${songs}" class="col-sm-6 col-md-4">
                 <h3 th:text="${song.songName}"></h3>
             </div>
         </div>
     </div>
-</div>
 <span th:include="includes :: js"></span>
 </body>
 </html>

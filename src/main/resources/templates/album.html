@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <span th:include="includes :: css"></span>
+
+</head>
+<body>
+<div th:include="navbar :: navbar"></div>
+<div class="container">
+    <div class="">
+        <h2 class="">Albums</h2>
+        <form class="form-inline" action="/album" method="post">
+            <div class="form-group">
+                <label for="searchAlbum">Search Album's Name: </label>
+                <input type="text" class="form-control" name="searchAlbum" id="searchAlbum" placeholder="Albums name"/>
+                <button type="submit" class="btn btn-default">Search</button>
+            </div>
+        </form>
+        <span class=""><a th:href="@{/album}" type="button" class="btn btn-default">Show All</a></span>
+        <span class=""><a th:href="@{/album/add}" type="button" class="btn btn-default">Add Album</a></span>
+    </div>
+    <div class="allAlbums">
+        <div class="row">
+            <div th:each="album : ${albums}" class="col-sm-6 col-md-4">
+                <div>
+                    <h4>
+                        <div>
+                        <span>Album:<span th:text="${album.albumName}"></span></span>
+                        </div>
+                        <div>
+                        <span>By:<span th:text="${album.artist.artistName}"></span></span>
+                        </div>
+                    </h4>
+                    <div>
+                        <h5>Year Released:<span th:text="${album.yearReleased}"></span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span th:include="includes :: js"></span>
+</body>
+</html>
