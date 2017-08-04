@@ -25,12 +25,12 @@ public class Album {
     public Album() {
     }
 
-//    public Album(String albumName, int yearReleased, Artist artist, List<Song> songs) {
-//        this.albumName = albumName;
-//        this.yearReleased = yearReleased;
-//        this.artist = artist;
-//        this.songs = songs;
-//    }
+    public Album(String albumName, int yearReleased, Artist artist, List<Song> songs) {
+        this.albumName = albumName;
+        this.yearReleased = yearReleased;
+        this.artist = artist;
+        this.songs = songs;
+    }
 
     public long getId() {
         return id;
