@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<h1>hi</h1>
+<div class="row">
+    <div th:each="artist : ${artists}" class="col-sm-6 col-md-4">
+        <h3 th:text="${artist.name}"></h3>
+    </div>
+</div>
+
+
+</body>
+</html>
