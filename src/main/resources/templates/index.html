@@ -10,9 +10,21 @@
 <h1>hi</h1>
 <div class="row">
     <div th:each="artist : ${artists}" class="col-sm-6 col-md-4">
-        <h3 th:text="${artist.name}"></h3>
+        <h3 th:text="${artist.artistName}"></h3>
     </div>
 </div>
+<div class="row">
+    <div th:each="album : ${albums}" class="col-sm-6 col-md-4">
+        <h3 th:text="${album.albumName}"></h3>
+    </div>
+</div>
+<div class="row">
+    <div th:each="song : ${songs}" class="col-sm-6 col-md-4">
+        <h3 th:text="${song.songName}"></h3>
+    </div>
+</div>
+
+
 
 
 </body>
