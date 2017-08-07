@@ -7,6 +7,7 @@ import io.braxton.braxtify.repository.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,5 +59,25 @@ public class AlbumController {
         albumRepo.save(newAlbum);
         return "redirect:/album";
 
+    }
+
+    @RequestMapping(value = "/album/edit/{albumId}", method = RequestMethod.GET)
+    public String editAlbum (@PathVariable("albumId") long albumId,
+                              Model model) {
+        Album album = albumRepo.findOne(albumId);
+        model.addAttribute("album", album);
+        return "editAlbum";
+    }
+
+    @RequestMapping(value = "/album/edit/{albumId}", method = RequestMethod.POST)
+    public String editAlbumPost (@PathVariable("albumId") long albumId,
+                                  @RequestParam("albumName") String albumName,
+                                  @RequestParam("yearReleased") java.sql.Date yearReleased,
+                                  Model model) {
+        Album album = albumRepo.findOne(albumId);
+        album.setAlbumName(albumName);
+        album.setYearReleased(yearReleased);
+        albumRepo.save(album);
+        return "redirect:/album";
     }
 }

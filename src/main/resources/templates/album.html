@@ -24,6 +24,8 @@
     <div class="allAlbums">
         <div class="row">
             <div th:each="album : ${albums}" class="col-sm-6 col-md-4">
+                <a th:href="'/album/edit/' + ${album.id}" class="btn btn-default" role="button">Edit</a>
+
                 <div>
                     <h4>
                         <div>

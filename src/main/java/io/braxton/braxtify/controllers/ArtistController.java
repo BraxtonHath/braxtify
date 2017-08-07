@@ -70,7 +70,6 @@ public class ArtistController {
         Artist artist = artistRepo.findOne(artistId);
         artist.setArtistName(artistName);
         artistRepo.save(artist);
-
         return "redirect:/artist";
     }
 }
