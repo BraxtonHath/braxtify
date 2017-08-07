@@ -27,30 +27,50 @@ public class ArtistController {
     SongRepository songRepo;
 
     @RequestMapping(value = "/artist", method = RequestMethod.GET)
-    public String Artist(Model model) {
+    public String Artist (Model model) {
         Iterable<Artist> artists = artistRepo.findAll();
         model.addAttribute("artists", artists);
         return "artist";
     }
 
     @RequestMapping(value = "/artist", method = RequestMethod.POST)
-    public String Search(@RequestParam("searchArtist") String searchArtist,
-                         Model model) {
+    public String Search (@RequestParam("searchArtist") String searchArtist,
+                          Model model) {
         List<Artist> artists = artistRepo.ArtistName(searchArtist);
         model.addAttribute("artists", artists);
         return "artist";
     }
 
     @RequestMapping(value = "/artist/add", method = RequestMethod.GET)
-    public String addArtist() {
+    public String addArtist () {
         return "addArtist";
     }
 
     @RequestMapping(value = "/artist/add", method = RequestMethod.POST)
-    public String addArtistPost(@RequestParam("artistName") String artistName) {
+    public String addArtistPost (@RequestParam("artistName") String artistName) {
         Artist newArtist = new Artist();
         newArtist.setArtistName(artistName);
         artistRepo.save(newArtist);
+        return "redirect:/artist";
+    }
+
+
+    @RequestMapping(value = "/artist/edit/{artistId}", method = RequestMethod.GET)
+    public String editArtist (@PathVariable("artistId") long artistId,
+                            Model model) {
+        Artist artist = artistRepo.findOne(artistId);
+        model.addAttribute("artist", artist);
+        return "editArtist";
+    }
+
+    @RequestMapping(value = "/artist/edit/{artistId}", method = RequestMethod.POST)
+    public String editArtistPost (@PathVariable("artistId") long artistId,
+                                  @RequestParam("artistName") String artistName,
+                                  Model model) {
+        Artist artist = artistRepo.findOne(artistId);
+        artist.setArtistName(artistName);
+        artistRepo.save(artist);
+
         return "redirect:/artist";
     }
 }

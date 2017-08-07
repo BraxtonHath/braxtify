@@ -24,6 +24,7 @@
     <div class="allArtist">
         <div class="row">
             <div th:each="artist : ${artists}" class="col-sm-6 col-md-4">
+                <a th:href="'/artist/edit/' + ${artist.id}" class="btn btn-default" role="button">Edit</a>
                 <div class="">
                     <h3 th:text="${artist.artistName}"></h3>
                 </div>
