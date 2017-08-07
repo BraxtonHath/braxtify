@@ -1,6 +1,7 @@
 package io.braxton.braxtify.models;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "song")
@@ -13,7 +14,7 @@ public class Song {
     private String featured;
     private int length;
     @Column(name = "yearreleasedsong")
-    private int yearReleasedSong;
+    private Date yearReleasedSong;
     private String genre;
 
     @ManyToOne
@@ -27,7 +28,7 @@ public class Song {
     public Song() {
     }
 
-    public Song(String songName, String featured, int length, int yearReleasedSong, String genre, Artist artist, Album album) {
+    public Song(String songName, String featured, int length, Date yearReleasedSong, String genre, Artist artist, Album album) {
         this.songName = songName;
         this.featured = featured;
         this.length = length;
@@ -69,11 +70,11 @@ public class Song {
         this.length = length;
     }
 
-    public int getYearReleasedSong() {
+    public java.util.Date getYearReleasedSong() {
         return yearReleasedSong;
     }
 
-    public void setYearReleasedSong(int yearReleasedSong) {
+    public void setYearReleasedSong(Date yearReleasedSong) {
         this.yearReleasedSong = yearReleasedSong;
     }
 

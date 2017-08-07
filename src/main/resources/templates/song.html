@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <span th:include="includes :: css"></span>
+
+</head>
+<body>
+<div th:include="navbar :: navbar"></div>
+<div class="container">
+    <div class="">
+        <h2 class="">Songs</h2>
+        <form class="form-inline" action="/song" method="post">
+            <div class="form-group">
+                <label for="searchSong">Search Song's Name: </label>
+                <input type="text" class="form-control" name="searchSong" id="searchSong" placeholder="Songs name"/>
+                <button type="submit" class="btn btn-default">Search</button>
+            </div>
+        </form>
+        <span class=""><a th:href="@{/song}" type="button" class="btn btn-default">Show All</a></span>
+        <span class=""><a th:href="@{/song/add}" type="button" class="btn btn-default">Add Song</a></span>
+    </div>
+    <div class="allSongs">
+        <div class="row">
+            <div th:each="song : ${songs}" class="col-sm-6 col-md-4">
+                <div>
+                    <h4>
+                        <div>
+                            <span>Song: <span th:text="${song.songName}"></span></span>
+                        </div>
+                        <div>
+                            <span>By: <span th:text="${song.album.artist.artistName}"></span></span>
+                        </div>
+                        <div>
+                            <span>Featured Artist: <span th:text="${song.featured}"></span></span>
+                        </div>
+                        <div>
+                            <span>From: <span th:text="${song.album.albumName}"></span></span>
+                        </div>
+                    </h4>
+                    <div>
+                        <h5>Length: <span th:text="${song.length}"></span></h5>
+                        <h5>Year Released: <span th:text="${song.yearReleasedSong}"></span></h5>
+                        <h5>Genre: <span th:text="${song.genre}"></span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span th:include="includes :: js"></span>
+</body>
+</html>

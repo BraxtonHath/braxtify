@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface AlbumRepository extends CrudRepository<Album, Long> {
-    List<Album> AlbumName(String name);
+    List<Album> AlbumName(String albumName);
 
 }

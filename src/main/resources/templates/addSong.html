@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <span th:include="includes :: css"></span>
+</head>
+<body>
+<div th:include="navbar :: navbar"></div>
+<div class="container">
+    <h1>Add Song</h1>
+    <h1>If your Album isn't here create them here
+        <a type="button" class="btn btn-default" th:href="@{/album/add}">Add Album</a>
+    </h1>
+    <form class="form-horizontal" action="/song/add" method="post">
+        <!--<label class="col-sm-2 control-label" for="artist">Artist:</label>-->
+        <!--<div class="col-sm-10" id="artist">-->
+            <!--<select class="form-control" name="artist">-->
+                <!--<option th:each="artist : ${artists}" th:value="${artist.id}" th:text="${artist.artistName}"></option>-->
+            <!--</select>-->
+        <!--</div>-->
+        <label class="col-sm-2 control-label" for="album">Album:</label>
+        <div class="col-sm-10" id="album">
+            <select class="form-control" name="album">
+                <option th:each="album : ${albums}" th:value="${album.id}" th:text="${album.albumName}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="songName">Song Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="songName" id="songName"/>
+            </div>
+            <label class="col-sm-2 control-label" for="featured">Featured Artist If Any:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="featured" id="featured"/>
+            </div>
+            <label class="col-sm-2 control-label" for="length">Length:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="length" id="length"/>
+            </div>
+            <label class="col-sm-2 control-label" for="yearReleasedSong">Year That Was Released:</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="yearReleasedSong" id="yearReleasedSong"/>
+            </div>
+            <label class="col-sm-2 control-label" for="genre">Genre:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="genre" id="genre"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Add Song</button>
+            </div>
+        </div>
+    </form>
+</div>
+<span th:include="includes :: js"></span>
+</body>
+</html>

@@ -39,6 +39,14 @@
                             <li><a th:href="@{/album/add}">Add Album</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a th:href="@{/song}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Songs <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/song}">See All Songs</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a th:href="@{/song/add}">Add Songs</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
